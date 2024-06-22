@@ -31,5 +31,17 @@ class Item(models.Model):
 
     def __str__(self):
     	return self.name
+
+class Order(models.Model):
+    order_id = models.AutoField(primary_key=True)
+    items = models.TextField()
+
+    class Meta:
+        db_table = 'orders'
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
+
+    def __str__(self):
+        return self.order_id
   
 

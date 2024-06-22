@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Item, Category
+from .models import Item, Category, Order
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,3 +16,7 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
         model = Item
         fields = ('id', 'name', 'price', 'categories', 'image')
 
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'

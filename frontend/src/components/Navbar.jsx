@@ -33,8 +33,21 @@ export default function MyModal() {
     setIsOpen(true);
   }
 
+  function sendData() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cart.items),
+    };
+    fetch("http://127.0.0.1:8000/post/", requestOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }
+
   function close() {
     setIsOpen(false);
+    console.log(cart.items);
+    sendData();
   }
 
   return (
